@@ -6,7 +6,7 @@
 package treasureHunt;
 
 import byui.cit260.treasureHunt.model.TreasureHuntGame;
-
+import byui.cit260.treasureHunt.model.TreasureMap;
 /**
  *
  * @author Jake
@@ -24,6 +24,15 @@ public class TreasureHunt {
         
         String gameInfo = treasureFound.toString();
         System.out.println(gameInfo);
+        
+        TreasureMap yourMap = new TreasureMap();
+        
+        yourMap.setClue("first clue");
+        yourMap.setLocationFound(2);
+        yourMap.setCluesRemaining(5);
+        
+        String mapInfo = yourMap.toString();
+        System.out.println(mapInfo);
     }
     
 }
