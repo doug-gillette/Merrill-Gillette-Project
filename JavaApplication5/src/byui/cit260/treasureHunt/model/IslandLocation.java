@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class IslandLocation implements Serializable{
     
-    private String desrcription;
+    private String description;
     private String blocked;
     private double travelTime;
     private double resourcesNeeded;
@@ -24,12 +24,12 @@ public class IslandLocation implements Serializable{
     }
 
     
-    public String getDesrcription() {
-        return desrcription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesrcription(String desrcription) {
-        this.desrcription = desrcription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getBlocked() {
@@ -67,7 +67,7 @@ public class IslandLocation implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.desrcription);
+        hash = 59 * hash + Objects.hashCode(this.description);
         hash = 59 * hash + Objects.hashCode(this.blocked);
         hash = 59 * hash + (int) (Double.doubleToLongBits(this.travelTime) ^ (Double.doubleToLongBits(this.travelTime) >>> 32));
         hash = 59 * hash + (int) (Double.doubleToLongBits(this.resourcesNeeded) ^ (Double.doubleToLongBits(this.resourcesNeeded) >>> 32));
@@ -84,7 +84,7 @@ public class IslandLocation implements Serializable{
             return false;
         }
         final IslandLocation other = (IslandLocation) obj;
-        if (!Objects.equals(this.desrcription, other.desrcription)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.blocked, other.blocked)) {
@@ -104,7 +104,7 @@ public class IslandLocation implements Serializable{
 
     @Override
     public String toString() {
-        return "IslandLocation{" + "desrcription=" + desrcription + ", blocked=" + blocked + ", travelTime=" + travelTime + ", resourcesNeeded=" + resourcesNeeded + ", searchDescription=" + searchDescription + '}';
+        return "IslandLocation{" + "description=" + description + ", blocked=" + blocked + ", travelTime=" + travelTime + ", resourcesNeeded=" + resourcesNeeded + ", searchDescription=" + searchDescription + '}';
     }
     
     
