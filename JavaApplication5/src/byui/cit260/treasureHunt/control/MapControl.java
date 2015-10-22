@@ -10,15 +10,15 @@ package byui.cit260.treasureHunt.control;
  * @author Jake
  */
 public class MapControl {
-    private double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) {
+    public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) {
         if (xAxis < 1 || yAxis < 1){
             return -1;
         }
         if (xAxis > 7 || yAxis > 7) {
             return -1;
         }
-        double xDistance = xLocation - xAxis;
-        double yDistance = yLocation - yAxis;
+        double xDistance = Math.abs(xLocation - xAxis);
+        double yDistance = Math.abs(yLocation - yAxis);
         if (xDistance == 0){
             return yDistance;
         }
