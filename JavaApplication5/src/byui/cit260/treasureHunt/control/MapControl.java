@@ -27,6 +27,22 @@ public class MapControl {
         }
         double distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
         return distance;
-
+        
     }
+    public double calcDamages(double distance, double damages) {
+      
+        if (distance < 0 || damages< 0) { 
+            return -1;
+            
+        }
+        
+        if (distance > 8.5 || damages > 300) { 
+            return -1;
+            
+        }
+        
+        damages = ((distance +((1)+(int)(Math.random() * ((10-1)+1))))*10)+damages;
+        return damages;
+    }
+
 }
