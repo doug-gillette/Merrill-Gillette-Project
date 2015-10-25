@@ -81,5 +81,76 @@ public class MapControlTest {
         result = instance.calcDistanceTraveled(xAxis, yAxis, xLocation, yLocation);
         assertEquals(expResult, result, 0.00001);
     }
+
+    /**
+     * Test of calcDamages method, of class MapControl.
+     */
+    @Test
+    public void testCalcDamages() {
+        System.out.println("calcDamages");
+        
+        System.out.println("\tTest case #1");
+        
+        double distance = 4;
+        double damages = 150;
+        MapControl instance = new MapControl();
+        double expResult = 245;
+        double result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 45);
+        
+        System.out.println("\tTest case #2");
+        
+        distance = -1;
+        damages = 150;
+        
+        expResult = -1;
+        result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 0.1);
+        
+        System.out.println("\tTest case #3");
+        
+        distance = 4;
+        damages = -1;
+        
+        expResult = -1;
+        result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 0.1);
+        
+        System.out.println("\tTest case #4");
+        
+        distance = 4;
+        damages = 324;
+        
+        expResult = -1;
+        result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 0.1);
+        
+        System.out.println("\tTest case #5");
+        
+        distance = 1;
+        damages = 0;
+        
+        expResult = 65;
+        result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 45);
+        
+        System.out.println("\tTest case #6");
+        
+        distance = 4;
+        damages = 300;
+        
+        expResult = 395;
+        result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 45);
+        
+        System.out.println("\tTest case #7");
+        
+        distance = 8.5;
+        damages = 100;
+        
+        expResult = 240;
+        result = instance.calcDamages(distance, damages);
+        assertEquals(expResult, result, 45);
+    }
     
 }
