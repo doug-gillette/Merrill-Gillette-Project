@@ -5,7 +5,7 @@
  */
 package treasureHunt;
 
-import byui.cit260.treasureHunt.model.TreasureHuntGame;
+import byui.cit260.treasureHunt.model.Game;
 import byui.cit260.treasureHunt.model.TreasureMap;
 import byui.cit260.treasureHunt.model.Location;
 import byui.cit260.treasureHunt.model.IslandLocation;
@@ -22,12 +22,27 @@ import byui.cit260.treasureHunt.view.StartProgramView;
  */
 public class TreasureHunt {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static Game currentGame = null;
+    private static Player player = null;
     public static void main(String[] args) {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.startProgram();
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        TreasureHunt.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        TreasureHunt.player = player;
     }
     
 }

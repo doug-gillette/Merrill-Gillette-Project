@@ -11,12 +11,12 @@ import java.util.Objects;
  *
  * @author Jake
  */
-public class TreasureHuntGame implements Serializable{
+public class Game implements Serializable{
     
     private double startTime;
     private String lastClue;
 
-    public TreasureHuntGame() {
+    public Game() {
     }
     
     public double getStartTime() {
@@ -56,7 +56,7 @@ public class TreasureHuntGame implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TreasureHuntGame other = (TreasureHuntGame) obj;
+        final Game other = (Game) obj;
         if (Double.doubleToLongBits(this.startTime) != Double.doubleToLongBits(other.startTime)) {
             return false;
         }
