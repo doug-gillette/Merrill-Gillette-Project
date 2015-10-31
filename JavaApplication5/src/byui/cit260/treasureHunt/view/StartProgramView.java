@@ -27,7 +27,7 @@ public class StartProgramView {
                  + "\n* This is Treasure Hunt Game."
                  + "\n* In this game you will be searching for treasure");
          
-         System.out.println("YOu are a grand adventruer that is searching the"
+         System.out.println("You are a grand adventruer that is searching the"
                  + "\n* high seas for the great treasure of the Pirate "
                  + "\n* Cpt. Jimmie Raven. You will sail around the Islands"
                  + "\n* in search of clues that will lead you to Jimmie's "
