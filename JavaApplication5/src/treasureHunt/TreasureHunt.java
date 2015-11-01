@@ -6,15 +6,7 @@
 package treasureHunt;
 
 import byui.cit260.treasureHunt.model.Game;
-import byui.cit260.treasureHunt.model.TreasureMap;
-import byui.cit260.treasureHunt.model.Location;
-import byui.cit260.treasureHunt.model.IslandLocation;
-import byui.cit260.treasureHunt.model.HidingPlaces;
-import byui.cit260.treasureHunt.model.Clues;
-import byui.cit260.treasureHunt.model.InventoryItem;
-import byui.cit260.treasureHunt.model.IslandMap;
 import byui.cit260.treasureHunt.model.Player;
-import byui.cit260.treasureHunt.model.Ship;
 import byui.cit260.treasureHunt.view.StartProgramView;
 /**
  *

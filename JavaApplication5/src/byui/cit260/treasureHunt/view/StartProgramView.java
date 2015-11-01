@@ -1,48 +1,12 @@
 
 package byui.cit260.treasureHunt.view;
 
-/**
- *
- * @author Douglas
- */
-public class StartProgramView {
-    
-    public StartProgramView() {
-    }
-    
-    public void startProgram() {
-        
-       // display banner 
-        this.displayBanner();
-        
-       //
-    }
-
-    private void displayBanner() {
-         System.out.println("\\\\\\\\\\\\\\\\\\\\\\*//////////////////////"
-                 + "\n* This is Treasure Hunt Game."
-                 + "\n* In this game you will be searching for treasure");
-         
-         System.out.println("You are a grand adventruer that is searching the"
-                 + "\n* high seas for the great treasure of the Pirate "
-                 + "\n* Cpt. Jimmie Raven. You will sail around the Islands"
-                 + "\n* in search of clues that will lead you to Jimmie's "
-                 + "\n* treasure.");
-         
-         System.out.println("May the Wind ever be behind you"
-                 + "\n*\\\\\\\\\\\\\\\\\\\\\\*//////////////////////");
-         
-    }
-    
-}
-
-package byui.cit260.treasureHunt.view;
-
 import byui.cit260.treasureHunt.control.ProgramControl;
 import byui.cit260.treasureHunt.model.Player;
 import java.util.Scanner;
 
 public class StartProgramView {
+    
     public StartProgramView() {
     }
     public void startProgram() {
@@ -89,4 +53,6 @@ public class StartProgramView {
         System.out.println("\n-----------------------------------"
                 + "Welcome to the game," + player.getName());
     }
+    
+    
 }
