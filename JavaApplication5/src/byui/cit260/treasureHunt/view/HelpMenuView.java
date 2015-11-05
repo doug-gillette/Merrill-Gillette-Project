@@ -16,7 +16,7 @@ public class HelpMenuView {
     
     private final String MENU = "\n"
         + "\n---------------------------------------------------"
-        + "\n| Game Menu                                       |"
+        + "\n| Help Menu                                       |"
         + "\n---------------------------------------------------"
         + "\nG-Goals"
         + "\nD-Description of the Game"
@@ -61,10 +61,10 @@ public class HelpMenuView {
         
         switch(choice) {
             case 'G': 
-                System.out.println("dislay Goals");
+                System.out.println("display Goals");
                 break;
             case 'D':
-                System.out.println("dislay description");
+                System.out.println("display description");
                 break;
             case 'H':
                 System.out.println("display How to Play");
