@@ -13,10 +13,9 @@ import treasureHunt.TreasureHunt;
  *
  * @author Jake
  */
-public class MainMenuView {
-
-    
-    private final String MENU = "\n"
+public class MainMenuView extends View {
+    public MainMenuView() {
+        super("\n"
             + "\n---------------------------------------------------"
             + "\n| Main Menu                                       |"
             + "\n---------------------------------------------------"
@@ -26,44 +25,12 @@ public class MainMenuView {
             + "\nS-Save Level"
             + "\nR-Reset"
             + "\nQ-Quit"
-            + "\n--------------------------------------------------";
-    
-    void displayMenu() {
-
-        char selection =' ';
-        do {
-            
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-            
-        } while (selection != 'Q');
+            + "\n--------------------------------------------------");
     }
-    
-    private String getInput() {
-        boolean valid = false;
-        String value = null;
-        Scanner keyboard = new Scanner(System.in); 
-        
-        while (!valid){
-            System.out.println("Enter your selection from Menu");
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(!"B".equals(value) && !"O".equals(value) && !"H".equals(value) && !"S".equals(value) && !"R".equals(value) && !"Q".equals(value)) {
-                System.out.println("Invalid input - choose from the main menu.");
-                continue;
-              
-            }
-           break;
-            
-        }
-        return value;
-    }
-    public void doAction(char choice) {
-       
+    @Override
+    public boolean doAction(Object obj) {
+       String value = (String) obj;
+       char choice = value.charAt(0);
         switch(choice) {
             case 'B': 
                 this.beginNewGame();

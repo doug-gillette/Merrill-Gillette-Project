@@ -15,7 +15,7 @@ public class StartProgramView {
         Player player = ProgramControl.createPlayer(playersName);
         this.displayWelcomeMessage(player);
         MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMenu();
+        mainMenu.display();
     }
     private void displayBanner() {
         System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*//////////////////////"
