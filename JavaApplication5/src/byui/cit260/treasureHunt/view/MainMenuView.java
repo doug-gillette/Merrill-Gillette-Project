@@ -6,7 +6,6 @@
 package byui.cit260.treasureHunt.view;
 
 import byui.cit260.treasureHunt.control.GameControl;
-import java.util.Scanner;
 import treasureHunt.TreasureHunt;
 
 /**
@@ -48,12 +47,12 @@ public class MainMenuView extends View {
                 this.resetGame();
                 break;
             case 'Q':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid Input Please Try Again ***");
                 break;
         }
-    }
+    return true;}
     private void beginNewGame() {
         GameControl.createNewGame(TreasureHunt.getPlayer());
         
