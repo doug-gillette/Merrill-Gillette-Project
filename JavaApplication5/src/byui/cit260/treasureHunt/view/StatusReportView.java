@@ -12,7 +12,8 @@ import java.util.Scanner;
  * @author Jake
  */
 public class StatusReportView {
-    private final String REPORT = "\n"
+    public StatusReportView() {
+        super ("\n"
             + "\n------------------------------------"
             + "\n| Status Report                    |"
             + "\n------------------------------------"
@@ -22,7 +23,7 @@ public class StatusReportView {
             + "\nC-Current island"
             + "\nH-Help"
             + "\nR-Return to game menu"
-            + "\n------------------------------------";
+            + "\n------------------------------------";)
     void displayReport() {
         char selection = ' ';
         do {
