@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Douglas
  */
-public class GameMenuView {
+public class GameMenuView extends View {
+    public GameMenuView() {
     
-    private final String MENU = "\n"
+           super("\n"
             + "\n---------------------------------------------------"
             + "\n| Game Menu                                       |"
             + "\n---------------------------------------------------"
@@ -27,44 +28,14 @@ public class GameMenuView {
             + "\nE-Explore Current Island"
             + "\nH-Help"
             + "\nR-Return to Main Menu"
-            + "\n--------------------------------------------------";
+            + "\n--------------------------------------------------");
+}
     
-    void displayMenu() {
+    @Override
+    public boolean doAction(Object obj) {
         
-        char selection =' ';
-        do {
-            
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-            
-        } while (selection != 'Q');
-    }
-
-    private String getInput() {
-        boolean valid = false;
-        String value = null;
-        Scanner keyboard = new Scanner(System.in); 
-        
-        while (!valid){
-            System.out.println("Enter your selection from Menu");
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(!"T".equals(value) && !"I".equals(value) && !"S".equals(value) && !"G".equals(value) && !"M".equals(value) && !"F".equals(value) && !"V".equals(value) && !"E".equals(value) && !"H".equals(value) && !"R".equals(value)) {
-                System.out.println("Invalid input - choose from the main menu.");
-                continue;
-              
-            }
-           break;
-        }
-        return value;
-    }
-
-    private void doAction(char choice) {
-        
+        String value = (String) obj;
+       char choice = value.charAt(0);
         switch(choice) {
             case 'T': 
                 System.out.println("dislay treasure map");
@@ -91,10 +62,15 @@ public class GameMenuView {
             case 'H':
                 System.out.println("display help menu");
             case 'R':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid Input Please Try Again ***");
                 break;
         }
+        return true;
+    }
+
+    void displayMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

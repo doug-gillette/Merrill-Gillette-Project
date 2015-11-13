@@ -48,11 +48,12 @@ public class MainMenuView extends View {
                 this.resetGame();
                 break;
             case 'Q':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid Input Please Try Again ***");
                 break;
         }
+        return true;
     }
     private void beginNewGame() {
         GameControl.createNewGame(TreasureHunt.getPlayer());
