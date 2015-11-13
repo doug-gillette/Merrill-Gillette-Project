@@ -6,7 +6,6 @@
 package byui.cit260.treasureHunt.view;
 
 import byui.cit260.treasureHunt.control.GameControl;
-import java.util.Scanner;
 import treasureHunt.TreasureHunt;
 
 /**

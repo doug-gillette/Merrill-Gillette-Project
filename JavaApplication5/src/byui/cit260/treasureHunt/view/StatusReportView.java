@@ -5,14 +5,14 @@
  */
 package byui.cit260.treasureHunt.view;
 
-import java.util.Scanner;
 
 /**
  *
  * @author Jake
  */
-public class StatusReportView {
-    private final String REPORT = "\n"
+public class StatusReportView extends View{
+    public StatusReportView() {
+        super ("\n"
             + "\n------------------------------------"
             + "\n| Status Report                    |"
             + "\n------------------------------------"
@@ -22,33 +22,12 @@ public class StatusReportView {
             + "\nC-Current island"
             + "\nH-Help"
             + "\nR-Return to game menu"
-            + "\n------------------------------------";
-    void displayReport() {
-        char selection = ' ';
-        do {
-            System.out.println(REPORT);
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-        } while (selection != 'R');
+            + "\n------------------------------------");
     }
-    private String getInput() {
-        boolean valid = false;
-        String value = null;
-        Scanner keyboard = new Scanner(System.in); 
-        while (!valid){
-            System.out.println("Enter your selection from Status Report");
-            value = keyboard.nextLine();
-            value = value.trim();
-            if(!"I".equals(value) && !"D".equals(value) && !"P".equals(value) && !"C".equals(value) && !"H".equals(value) && !"R".equals(value)) {
-                System.out.println("Invalid input - choose from the main menu.");
-                continue;
-            }
-           break;
-        }
-        return value;
-    }
-    private void doAction(char choice) {
+    @Override
+    public boolean doAction(Object obj) {
+        String value = (String) obj;
+        char choice = value.charAt(0);
         switch(choice) {
             case 'I':
                 this.displayInventory();
@@ -66,12 +45,12 @@ public class StatusReportView {
                 this.displayHelpMenu();
                 break;
             case 'R':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid Input, Please Try Again ***");
                 break;
         }
-    }
+    return true;}
     private void displayInventory() {
         System.out.println("*** displayInventory() function called ***");
     }
