@@ -5,7 +5,6 @@
  */
 package byui.cit260.treasureHunt.view;
 
-import java.util.Scanner;
 
 /**
  *
@@ -29,7 +28,7 @@ public class GameMenuView extends View {
             + "\nH-Help"
             + "\nR-Return to Main Menu"
             + "\n--------------------------------------------------");
-}
+    }
     
     @Override
     public boolean doAction(Object obj) {
