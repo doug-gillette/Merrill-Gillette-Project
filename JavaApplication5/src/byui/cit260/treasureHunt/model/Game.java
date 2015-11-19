@@ -15,7 +15,11 @@ public class Game implements Serializable{
     
     private double startTime;
     private String lastClue;
-
+    private Ship ship;
+    private Player player;
+    private TreasureMap treasureMap;
+    private IslandMap islandMap;
+    private InventoryItem[] inventory;
     public Game() {
     }
     
@@ -35,6 +39,42 @@ public class Game implements Serializable{
         this.lastClue = lastClue;
     }
 
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public TreasureMap getTreasureMap() {
+        return treasureMap;
+    }
+
+    public void setTreasureMap(TreasureMap treasureMap) {
+        this.treasureMap = treasureMap;
+    }
+
+    public IslandMap getIslandMap() {
+        return islandMap;
+    }
+
+    public void setIslandMap(IslandMap islandMap) {
+        this.islandMap = islandMap;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+    
     @Override
     public String toString() {
         return "TreasureHuntGame{" + "startTime=" + startTime + ", lastClue=" + lastClue + '}';

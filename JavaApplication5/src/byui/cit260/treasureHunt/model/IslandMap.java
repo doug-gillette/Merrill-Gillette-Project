@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class IslandMap implements Serializable{
     private double noColumns;
     private double noRows;
-
+    private Game[] game;
     public IslandMap() {
     }
     
@@ -33,6 +33,10 @@ public class IslandMap implements Serializable{
         this.noRows = noRows;
     }
 
+    public Game[] getGame() {
+        return game;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;

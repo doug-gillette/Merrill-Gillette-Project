@@ -16,7 +16,7 @@ public class Location implements Serializable{
     private String unlocked;
     private double row;
     private double column;
-
+    private IslandLocation islandLocation;
     public Location() {
     }
     
@@ -44,6 +44,14 @@ public class Location implements Serializable{
         this.column = column;
     }
 
+    public IslandLocation getIslandLocation() {
+        return islandLocation;
+    }
+
+    public void setIslandLocation(IslandLocation islandLocation) {
+        this.islandLocation = islandLocation;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

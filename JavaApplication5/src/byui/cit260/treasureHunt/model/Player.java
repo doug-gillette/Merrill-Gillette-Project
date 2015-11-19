@@ -13,9 +13,9 @@ import java.util.Objects;
  * @author Jake
  */
 public class Player implements Serializable{
- private String name;
- private double bestTime;
-
+private String name;
+private double bestTime;
+private Game[] game;
     public Player() {
     }
 
@@ -35,6 +35,10 @@ public class Player implements Serializable{
         this.bestTime = bestTime;
     }
 
+    public Game[] getGame() {
+        return game;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;

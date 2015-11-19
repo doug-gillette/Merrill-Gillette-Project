@@ -17,7 +17,7 @@ public class HidingPlaces implements Serializable{
     private String unlocked;
     private String description;
     private String content;
-
+    private IslandLocation islandLocation;
     public HidingPlaces() {
     }
 
@@ -46,6 +46,14 @@ public class HidingPlaces implements Serializable{
         this.content = content;
     }
 
+    public IslandLocation getIslandLocation() {
+        return islandLocation;
+    }
+
+    public void setIslandLocation(IslandLocation islandLocation) {
+        this.islandLocation = islandLocation;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;

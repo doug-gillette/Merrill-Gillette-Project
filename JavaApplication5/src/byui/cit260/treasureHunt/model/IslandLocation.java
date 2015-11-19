@@ -19,7 +19,8 @@ public class IslandLocation implements Serializable{
     private double travelTime;
     private double resourcesNeeded;
     private String searchDescription;
-
+    private Location[] location;
+    private HidingPlaces[] hidingPlaces;
     public IslandLocation() {
     }
 
@@ -64,6 +65,14 @@ public class IslandLocation implements Serializable{
         this.searchDescription = searchDescription;
     }
 
+    public Location[] getLocation() {
+        return location;
+    }
+
+    public HidingPlaces[] getHidingPlaces() {
+        return hidingPlaces;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

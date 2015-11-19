@@ -16,7 +16,8 @@ public class TreasureMap implements Serializable{
     private String clue;
     private double locationFound;
     private double cluesRemaining;
-
+    private Game[] game;
+    private Clues[] clues;
     public TreasureMap() {
     }
 
@@ -45,6 +46,14 @@ public class TreasureMap implements Serializable{
         this.cluesRemaining = cluesRemaining;
     }
 
+    public Game[] getGame() {
+        return game;
+    }
+
+    public Clues[] getClues() {
+        return clues;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
