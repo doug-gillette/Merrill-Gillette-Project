@@ -10,6 +10,12 @@ package byui.cit260.treasureHunt.control;
  * @author Jake
  */
 public class MapControl {
+    public static IslandMap createMap() {
+        IslandMap map = new IslandMap(7, 7);
+        Scene[] scenes = createScenes();
+        assignScenesToLocations(map, scenes);
+        return map;
+    }
     public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) {
         if (xAxis < 1 || yAxis < 1){
             return -1;

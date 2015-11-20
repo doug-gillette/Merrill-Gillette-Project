@@ -13,7 +13,15 @@ import java.util.Objects;
 public class InventoryItem implements Serializable{
     private String inventoryType;
     private double quantityInStock;
-
+    public enum Item {
+    coconut,
+    fish,
+    water,
+    wood,
+    hammer,
+    saw,
+    spyglass;
+    }
     public InventoryItem() {
     }
     
