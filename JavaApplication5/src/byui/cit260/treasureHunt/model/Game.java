@@ -21,6 +21,8 @@ public class Game implements Serializable{
     private IslandMap islandMap;
     private InventoryItem[] inventory;
     public Game() {
+        this.startTime = 0;
+        this.lastClue = "You have found the hidden treasure of Captain Jimmie Raven.  Congratulations!";
     }
     
     public double getStartTime() {

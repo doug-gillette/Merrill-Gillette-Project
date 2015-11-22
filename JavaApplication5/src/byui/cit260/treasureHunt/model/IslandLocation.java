@@ -22,6 +22,11 @@ public class IslandLocation implements Serializable{
     private Location[] location;
     private HidingPlaces[] hidingPlaces;
     public IslandLocation() {
+        this.description = "This is Fiji.  You can choose to look at three places that might be hiding the clue - the beac, the mainland, and the forest.";
+        this.blocked = "You can't go there.";
+        this.travelTime = 0;
+        this.resourcesNeeded = 0;
+        this.searchDescription = "Fiji"
     }
 
     

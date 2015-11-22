@@ -5,7 +5,12 @@
  */
 package byui.cit260.treasureHunt.control;
 
+import byui.cit260.treasureHunt.model.Game;
+import byui.cit260.treasureHunt.model.InventoryItem;
+import byui.cit260.treasureHunt.model.IslandMap;
 import byui.cit260.treasureHunt.model.Player;
+import byui.cit260.treasureHunt.model.Ship;
+import treasureHunt.TreasureHunt;
 
 /**
  *
@@ -18,41 +23,52 @@ public class GameControl {
         TreasureHunt.setCurrentGame(game);
         game.setPlayer(player);
         InventoryItem[] inventoryList = GameControl.createInventoryList();
-        game.setInventory(invetoryList);
+        game.setInventory(inventoryList);
+        
         Ship ship = new Ship();
         game.setShip(ship);
-        Map map = MapControl.createMap();
-        game.setMap(map);
+        IslandMap map = MapControl.createMap();
+        game.setIslandMap(map);
+    }
+    public enum Item {
+    coconut,
+    fish,
+    water,
+    wood,
+    hammer,
+    saw,
+    spyglass;
     }
     public static InventoryItem[] createInventoryList() {
-            InventoryItem[] inventory = new InventoryItem[7];
+            InventoryItem[] inventory = new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
             InventoryItem coconut = new InventoryItem();
             coconut.setDescription("Coconut");
             coconut.setQuantityInStock(0);
-            inventory[0] = coconut;
+            inventory[Item.coconut.ordinal()] = coconut;
             InventoryItem fish = new InventoryItem();
             fish.setDescription("Fish");
             fish.setQuantityInStock(0);
-            inventory[1] = fish;
-            InventoryItem water = Water");
+            inventory[Item.fish.ordinal()] = fish;
+            InventoryItem water = new InventoryItem();
+            water.setDescription("Water");
             water.setQuantityInStock(0);
-            inventory[2] = water;
+            inventory[Item.water.ordinal()] = water;
             InventoryItem wood = new InventoryItem();
             wood.setDescription("Wood");
             wood.setQuantityInStock(0);
-            inventory[3] = wood;
+            inventory[Item.wood.ordinal()] = wood;
             InventoryItem hammer = new InventoryItem();
             hammer.setDescription("Hammer");
             hammer.setQuantityInStock(0);
-            inventory[4] = hammer;
+            inventory[Item.hammer.ordinal()] = hammer;
             InventoryItem saw = new InventoryItem();
             saw.setDescription("Saw");
             saw.setQuantityInStock(0);
-            inventory[5] = saw;
+            inventory[Item.saw.ordinal()] = saw;
             InventoryItem spyglass = new InventoryItem();
             spyglass.setDescription("Spyglass");
             spyglass.setQuantityInStock(0);
-            inventory[6] = spyglass;
+            inventory[Item.spyglass.ordinal()] = spyglass;
             return inventory;
         }
 }

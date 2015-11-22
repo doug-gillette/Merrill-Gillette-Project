@@ -23,6 +23,8 @@ public class InventoryItem implements Serializable{
     spyglass;
     }
     public InventoryItem() {
+        this.inventoryType = "coconut";
+        this.quantityInStock = 0;
     }
     
     public String getInventoryType() {

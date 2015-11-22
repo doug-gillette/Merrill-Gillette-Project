@@ -19,6 +19,9 @@ public class HidingPlaces implements Serializable{
     private String content;
     private IslandLocation islandLocation;
     public HidingPlaces() {
+        this.unlocked = "You have found the next clue!";
+        this.description = "Ooh, shiny!";
+        this.content = "1 piece of the puzzle!";
     }
 
     

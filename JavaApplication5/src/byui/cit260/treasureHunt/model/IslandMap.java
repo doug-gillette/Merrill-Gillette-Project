@@ -15,6 +15,12 @@ public class IslandMap implements Serializable{
     private double noRows;
     private Game[] game;
     public IslandMap() {
+        this.noColumns = 7;
+        this.noRows = 7;
+    }
+
+    public IslandMap(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public double getNoColumns() {

@@ -5,6 +5,9 @@
  */
 package byui.cit260.treasureHunt.control;
 
+import byui.cit260.treasureHunt.model.HidingPlaces;
+import byui.cit260.treasureHunt.model.IslandMap;
+
 /**
  *
  * @author Jake
@@ -12,9 +15,13 @@ package byui.cit260.treasureHunt.control;
 public class MapControl {
     public static IslandMap createMap() {
         IslandMap map = new IslandMap(7, 7);
-        Scene[] scenes = createScenes();
-        assignScenesToLocations(map, scenes);
+        HidingPlaces[] hidingPlaces = createHidingPlaces();
+        assignScenesToLocations(map, hidingPlaces);
         return map;
+    }
+
+    private static HidingPlaces[] createHidingPlaces() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) {
         if (xAxis < 1 || yAxis < 1){

@@ -18,6 +18,9 @@ public class Location implements Serializable{
     private double column;
     private IslandLocation islandLocation;
     public Location() {
+        this.unlocked = "This location is unlocked.";
+        this.row = 1;
+        this.column = 1;
     }
     
     public String getUnlocked() {

@@ -19,6 +19,9 @@ public class TreasureMap implements Serializable{
     private Game[] game;
     private Clues[] clues;
     public TreasureMap() {
+        this.clue = "You must look for an island shaped like a J.";
+        this.locationFound = 0;
+        this.cluesRemaining = 0;
     }
 
     

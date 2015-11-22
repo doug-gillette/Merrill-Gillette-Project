@@ -15,6 +15,8 @@ public class Ship implements Serializable{
     private String damageStatus;
 
     public Ship() {
+        this.location = 0;
+        this.damageStatus = "The ship is in shipshape condition, sir!";
     }
     
     public double getLocation() {

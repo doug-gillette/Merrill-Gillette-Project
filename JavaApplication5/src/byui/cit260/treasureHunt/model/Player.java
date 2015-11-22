@@ -17,6 +17,8 @@ private String name;
 private double bestTime;
 private Game[] game;
     public Player() {
+        this.name = "Fred";
+        this.bestTime = 0;
     }
 
     public String getName() {
