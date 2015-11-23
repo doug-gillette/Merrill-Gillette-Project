@@ -72,6 +72,21 @@ public class GameControl {
         inventory[Item.spyglass.ordinal()] = spyglass;
         return inventory;
     }
+    public static InventoryItem[] getSortedInventoryList() {
+        InventoryItem[] originalInventoryList = TreasureHunt.getCurrentGame().getInventory();
+        InventoryItem[] inventoryList = originalInventoryList.clone();
+        InventoryItem tempInventoryItem;
+        for (int i = 0; i < inventoryList.length-1; i++) {
+            for (int j = 0; j < inventoryList.length-1-i; j++) {
+                if (inventoryList[j].getDescription.compareToIgnoreCase([j + 1].getDescription()) > 0) {
+                tempInventoryItem = inventoryList[j];
+                inventoryList[j] = inventoryList[j + 1];
+                inventoryList[j + 1] = tempInventoryItem;
+                }
+            }
+        }
+        return inventoryList;
+    }
     private static void assignHidingPlacesToLocations(IslandMap islandMap, HidingPlaces[] hidingPlaces) {
         Location[][] locations = islandMap.getLocations();
         Location[0][0].setHidingPlaces(hidingPlaces[HidingPlacesType.start.ordinal()]);
