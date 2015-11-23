@@ -13,21 +13,22 @@ import java.io.Serializable;
  */
 public class Location implements Serializable{
     
-    private String unlocked;
+    private boolean unlocked;
     private double row;
     private double column;
     private IslandLocation islandLocation;
+    private HidingPlaces hidingPlace;
     public Location() {
-        this.unlocked = "This location is unlocked.";
+        this.unlocked = false;
         this.row = 1;
         this.column = 1;
     }
     
-    public String getUnlocked() {
+    public boolean getUnlocked() {
         return unlocked;
     }
 
-    public void setUnlocked(String unlocked) {
+    public void setUnlocked(boolean unlocked) {
         this.unlocked = unlocked;
     }
 
@@ -53,6 +54,14 @@ public class Location implements Serializable{
 
     public void setIslandLocation(IslandLocation islandLocation) {
         this.islandLocation = islandLocation;
+    }
+
+    public HidingPlaces getHidingPlace() {
+        return hidingPlace;
+    }
+
+    public void setHidingPlace(HidingPlaces hidingPlace) {
+        this.hidingPlace = hidingPlace;
     }
     
     @Override

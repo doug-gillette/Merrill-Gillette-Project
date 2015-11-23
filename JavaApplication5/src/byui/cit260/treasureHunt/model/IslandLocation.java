@@ -26,7 +26,7 @@ public class IslandLocation implements Serializable{
         this.blocked = "You can't go there.";
         this.travelTime = 0;
         this.resourcesNeeded = 0;
-        this.searchDescription = "Fiji"
+        this.searchDescription = "Fiji";
     }
 
     

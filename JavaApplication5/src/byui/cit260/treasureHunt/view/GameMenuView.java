@@ -49,7 +49,7 @@ public class GameMenuView extends View {
                 System.out.println("call get resources function");
                 break;
             case 'M':
-                System.out.println("call move islands function");
+                this.displayIslandMap();
                 break;
             case 'F':
                 System.out.println("call fix ship finction");

@@ -23,8 +23,38 @@ public class HidingPlaces implements Serializable{
         this.description = "Ooh, shiny!";
         this.content = "1 piece of the puzzle!";
     }
-
-    
+    private static HidingPlaces[] createHidingPlaces() {
+        Game game = TreasureHunt.getCurrentGame();
+        HidingPlaces[] hidingPlaces = new HidingPlaces[HidingPlacesType.values().length];
+        HidingPlaces firstHidingPlace = new HidingPlaces();
+        firstHidingPlace.setDescription(
+            "/nHere you are at Island X.  It's not named beczuse it's so small.  You have looked"
+            + " around and found the first clue on your way to find Captain Jimmie Raven's treasure."
+            + "  It says that the next clue lies in Fiji.  Go on your way to find the rest of the "
+            + "clues.  Good luck.  You're going to need it.");
+        firstHidingPlace.setMapSymbol(" ST ");
+        firstHidingPlace.setBlocked(false);
+        firstHidingPlace.setTravelTime(240);
+        hidingPlaces[HidingPlacesType.start.ordinal()] = firstHidingPlace;
+        HidingPlaces lastHidingPlace = new HidingPlaces();
+        lastHidingPlace.setDescription(
+            "/nYou have found the treasure!!  Hoards of gold doubloons, rubies, emeralds, pearls, "
+            + "silver chalices, and necklaces and bracelets of every shape and size.  You are the "
+            + "ultimate treasure hunter!!");
+        lastHidingPlace.setMapSymbol(" END ");
+        lastHidingPlace.setBlocked(false);
+        lastHidingPlace.setTravelTime(Double.POSITIVE_INFINITY);
+        hidingPlaces[HidingPlacesType.end.ordinal()] = firstHidingPlace;
+    }
+    public enum HidingPlacesType {
+        start,
+        ocean,
+        island,
+        beach,
+        main,
+        forest,
+        end;
+    }
     public String getUnlocked() {
         return unlocked;
     }

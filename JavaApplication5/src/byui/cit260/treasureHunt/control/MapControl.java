@@ -16,7 +16,7 @@ public class MapControl {
     public static IslandMap createMap() {
         IslandMap map = new IslandMap(7, 7);
         HidingPlaces[] hidingPlaces = createHidingPlaces();
-        assignScenesToLocations(map, hidingPlaces);
+        GameControl.assignHidingPlacesToLocations(map, hidingPlaces);
         return map;
     }
 
@@ -40,7 +40,6 @@ public class MapControl {
         }
         double distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
         return distance;
-        
     }
     public double calcDamages(double distance, double damages) {
       
@@ -57,5 +56,4 @@ public class MapControl {
         damages = ((distance +((1)+(int)(Math.random() * ((10-1)+1))))*10)+damages;
         return damages;
     }
-
 }

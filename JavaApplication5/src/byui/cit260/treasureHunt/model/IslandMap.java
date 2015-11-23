@@ -14,13 +14,29 @@ public class IslandMap implements Serializable{
     private double noColumns;
     private double noRows;
     private Game[] game;
+    private Location[][] locations;
     public IslandMap() {
         this.noColumns = 7;
         this.noRows = 7;
     }
 
-    public IslandMap(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IslandMap(int noRows, int noColumns) {
+        if (noRows < 1 || noColumns < 1) {
+            System.out.println("The number of rows and colums must be > zero");
+            return;
+        }
+        this.noRows = noRows;
+        this.noColumns = noColumns;
+        this.locations = new Location[noRows][noColumns];
+        for (int row = 0; row < noRows; row++) {
+            for(int column = 0; column < noColumns; column++) {
+                Location location = new location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setUnlocked(false);
+                locations[row][column] = location;
+            }
+        }
     }
     
     public double getNoColumns() {
@@ -41,6 +57,14 @@ public class IslandMap implements Serializable{
 
     public Game[] getGame() {
         return game;
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
     
     @Override
