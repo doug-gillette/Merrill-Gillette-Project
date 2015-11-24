@@ -60,7 +60,7 @@ public class Location implements Serializable{
         return hidingPlace;
     }
 
-    public void setHidingPlace(HidingPlaces hidingPlace) {
+    public void setHidingPlaces(HidingPlaces hidingPlace) {
         this.hidingPlace = hidingPlace;
     }
     

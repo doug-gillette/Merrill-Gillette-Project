@@ -30,7 +30,7 @@ public class IslandMap implements Serializable{
         this.locations = new Location[noRows][noColumns];
         for (int row = 0; row < noRows; row++) {
             for(int column = 0; column < noColumns; column++) {
-                Location location = new location();
+                Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setUnlocked(false);

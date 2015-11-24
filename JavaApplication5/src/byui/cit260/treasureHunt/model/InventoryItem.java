@@ -13,6 +13,7 @@ import java.util.Objects;
 public class InventoryItem implements Serializable{
     private String inventoryType;
     private double quantityInStock;
+    
     public enum Item {
     coconut,
     fish,
@@ -73,5 +74,7 @@ public class InventoryItem implements Serializable{
     public String toString() {
         return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
     }
+
+    
     
 }

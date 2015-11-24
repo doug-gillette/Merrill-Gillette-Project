@@ -5,6 +5,9 @@
  */
 package byui.cit260.treasureHunt.view;
 
+import byui.cit260.treasureHunt.control.GameControl;
+import byui.cit260.treasureHunt.model.InventoryItem;
+
 
 /**
  *
@@ -82,12 +85,16 @@ public class GameMenuView extends View {
         System.out.println("Inventory Type" + "/t" +
                 "In Stock");
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "/t  " +
+            System.out.println(inventoryItem.getInventoryType() + "/t  " +
                                inventoryItem.getQuantityInStock());
         }
     }
 
     private void displayIslandMap() {
         System.out.println("/n*** displayIslandMap stub function called ***");
+    }
+
+    private void displayStatusReport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

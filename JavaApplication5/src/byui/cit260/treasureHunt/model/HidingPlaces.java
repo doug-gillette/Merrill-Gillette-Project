@@ -7,6 +7,7 @@ package byui.cit260.treasureHunt.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import treasureHunt.TreasureHunt;
 
 /**
  *
@@ -28,7 +29,7 @@ public class HidingPlaces implements Serializable{
         HidingPlaces[] hidingPlaces = new HidingPlaces[HidingPlacesType.values().length];
         HidingPlaces firstHidingPlace = new HidingPlaces();
         firstHidingPlace.setDescription(
-            "/nHere you are at Island X.  It's not named beczuse it's so small.  You have looked"
+            "/nHere you are at Island X.  It's not named because it's so small.  You have looked"
             + " around and found the first clue on your way to find Captain Jimmie Raven's treasure."
             + "  It says that the next clue lies in Fiji.  Go on your way to find the rest of the "
             + "clues.  Good luck.  You're going to need it.");
@@ -45,6 +46,19 @@ public class HidingPlaces implements Serializable{
         lastHidingPlace.setBlocked(false);
         lastHidingPlace.setTravelTime(Double.POSITIVE_INFINITY);
         hidingPlaces[HidingPlacesType.end.ordinal()] = firstHidingPlace;
+        return null;
+    }
+
+    private void setMapSymbol(String _st_) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setBlocked(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setTravelTime(double POSITIVE_INFINITY) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public enum HidingPlacesType {
         start,
@@ -121,7 +135,4 @@ public class HidingPlaces implements Serializable{
     public String toString() {
         return "HidingPlaces{" + "unlocked=" + unlocked + ", description=" + description + ", content=" + content + '}';
     }
-    
-    
-    
 }
