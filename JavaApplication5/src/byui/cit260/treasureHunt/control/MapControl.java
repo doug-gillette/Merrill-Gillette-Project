@@ -7,6 +7,10 @@ package byui.cit260.treasureHunt.control;
 
 import byui.cit260.treasureHunt.model.HidingPlaces;
 import byui.cit260.treasureHunt.model.IslandMap;
+import byui.cit260.treasureHunt.model.Ship;
+import exceptions.MapControlException;
+import java.awt.Point;
+import treasureHunt.TreasureHunt;
 
 /**
  *
@@ -23,12 +27,15 @@ public class MapControl {
     private static HidingPlaces[] createHidingPlaces() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) {
-        if (xAxis < 1 || yAxis < 1){
-            return -1;
+    public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) 
+    throws MapControlException{
+        if (xAxis < 1 || yAxis < 1) {
+            throw new MapControlException("Cannot move to this location"
+                    + "because the coordinates are outside the map");
         }
         if (xAxis > 7 || yAxis > 7) {
-            return -1;
+            throw new MapControlException("Cannot move to this location"
+                    + "because the coordinates are outside the map");
         }
         double xDistance = Math.abs(xLocation - xAxis);
         double yDistance = Math.abs(yLocation - yAxis);
@@ -41,19 +48,35 @@ public class MapControl {
         double distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
         return distance;
     }
-    public double calcDamages(double distance, double damages) {
+    public double calcDamages(double distance, double damages) throws MapControlException{
       
         if (distance < 0 || damages< 0) { 
-            return -1;
+          throw new MapControlException("Cannot move to this location"
+                    + "because the coordinates are outside the map");  
             
         }
         
         if (distance > 8.5 || damages > 300) { 
-            return -1;
+            throw new MapControlException("Cannot move to this location"
+                    + "because the coordinates are outside the map");
             
         }
         
         damages = ((distance +((1)+(int)(Math.random() * ((10-1)+1))))*10)+damages;
         return damages;
+    }
+    public void moveIsland(Ship ship, Point coordinates) throws MapControlException{
+        IslandMap islandMap = TreasureHunt.getCurrentGame().getIslandMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= islandMap.getNoRows() || 
+            newColumn < 0 || newColumn >= islandMap.getNoColumns()){
+            throw new MapControlException("The Ship can not be moved to this"
+                    + "location because the coordinates"
+                    + "are outside the map boundaries");
+        }
+        
+        
     }
 }

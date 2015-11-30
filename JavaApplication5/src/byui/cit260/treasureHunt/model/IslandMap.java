@@ -5,6 +5,7 @@
  */
 package byui.cit260.treasureHunt.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 /**
  *
@@ -15,6 +16,7 @@ public class IslandMap implements Serializable{
     private double noRows;
     private Game[] game;
     private Location[][] locations;
+    private Point coordinates;
     public IslandMap() {
         this.noColumns = 7;
         this.noRows = 7;
@@ -31,8 +33,7 @@ public class IslandMap implements Serializable{
         for (int row = 0; row < noRows; row++) {
             for(int column = 0; column < noColumns; column++) {
                 Location location = new Location();
-                location.setColumn(column);
-                location.setRow(row);
+                location.setCoordinates(coordinates);
                 location.setUnlocked(false);
                 locations[row][column] = location;
             }

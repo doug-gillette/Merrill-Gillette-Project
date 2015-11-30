@@ -5,6 +5,7 @@
  */
 package byui.cit260.treasureHunt.model;
 
+import java.awt.Point;
 import java.util.Objects;
 import java.io.Serializable;
 /**
@@ -14,14 +15,12 @@ import java.io.Serializable;
 public class Location implements Serializable{
     
     private boolean unlocked;
-    private double row;
-    private double column;
+    private Point coordinates;
     private IslandLocation islandLocation;
     private HidingPlaces hidingPlace;
     public Location() {
         this.unlocked = false;
-        this.row = 1;
-        this.column = 1;
+        coordinates = new Point (1,1);
     }
     
     public boolean getUnlocked() {
@@ -32,22 +31,14 @@ public class Location implements Serializable{
         this.unlocked = unlocked;
     }
 
-    public double getRow() {
-        return row;
+    public Point getCoordinates() {
+        return coordinates;
     }
 
-    public void setRow(double row) {
-        this.row = row;
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
     }
-
-    public double getColumn() {
-        return column;
-    }
-
-    public void setColumn(double column) {
-        this.column = column;
-    }
-
+    
     public IslandLocation getIslandLocation() {
         return islandLocation;
     }
@@ -63,13 +54,14 @@ public class Location implements Serializable{
     public void setHidingPlaces(HidingPlaces hidingPlace) {
         this.hidingPlace = hidingPlace;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.unlocked);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        int hash = 7;
+        hash = 13 * hash + (this.unlocked ? 1 : 0);
+        hash = 13 * hash + Objects.hashCode(this.coordinates);
+        hash = 13 * hash + Objects.hashCode(this.islandLocation);
+        hash = 13 * hash + Objects.hashCode(this.hidingPlace);
         return hash;
     }
 
@@ -82,13 +74,16 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (!Objects.equals(this.unlocked, other.unlocked)) {
+        if (this.unlocked != other.unlocked) {
             return false;
         }
-        if (Double.doubleToLongBits(this.row) != Double.doubleToLongBits(other.row)) {
+        if (!Objects.equals(this.coordinates, other.coordinates)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
+        if (!Objects.equals(this.islandLocation, other.islandLocation)) {
+            return false;
+        }
+        if (!Objects.equals(this.hidingPlace, other.hidingPlace)) {
             return false;
         }
         return true;
@@ -96,8 +91,12 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "unlocked=" + unlocked + ", row=" + row + ", column=" + column + '}';
+        return "Location{" + "unlocked=" + unlocked + ", coordinates=" + coordinates + ", islandLocation=" + islandLocation + ", hidingPlace=" + hidingPlace + '}';
     }
+
+  
+
+    
     
     
 }

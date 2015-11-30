@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.treasureHunt.model;
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -11,37 +12,39 @@ import java.util.Objects;
  * @author Jake
  */
 public class Ship implements Serializable{
-    private double location;
-    private String damageStatus;
+    private Point location;
+    private double damageStatus;
 
     public Ship() {
-        this.location = 0;
-        this.damageStatus = "The ship is in shipshape condition, sir!";
+        location = new Point (1,1);
+        this.damageStatus = 0;
     }
     
-    public double getLocation() {
+    public Point getLocation() {
         return location;
     }
 
-    public void setLocation(double location) {
+    public void setLocation(Point location) {
         this.location = location;
     }
 
-    public String getDamageStatus() {
+    public double getDamageStatus() {
         return damageStatus;
     }
 
-    public void setDamageStatus(String damageStatus) {
+    public void setDamageStatus(double damageStatus) {
         this.damageStatus = damageStatus;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 47 * hash + (int) (Double.doubleToLongBits(this.location) ^ (Double.doubleToLongBits(this.location) >>> 32));
-        hash = 47 * hash + Objects.hashCode(this.damageStatus);
+        hash = 29 * hash + Objects.hashCode(this.location);
+        hash = 29 * hash + Objects.hashCode(this.damageStatus);
         return hash;
     }
+
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -52,7 +55,7 @@ public class Ship implements Serializable{
             return false;
         }
         final Ship other = (Ship) obj;
-        if (Double.doubleToLongBits(this.location) != Double.doubleToLongBits(other.location)) {
+        if (!Objects.equals(this.location, other.location)) {
             return false;
         }
         if (!Objects.equals(this.damageStatus, other.damageStatus)) {
@@ -60,6 +63,8 @@ public class Ship implements Serializable{
         }
         return true;
     }
+
+   
 
     @Override
     public String toString() {

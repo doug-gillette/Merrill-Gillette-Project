@@ -9,6 +9,7 @@ import byui.cit260.treasureHunt.control.GameControl;
 import byui.cit260.treasureHunt.model.InventoryItem;
 
 
+
 /**
  *
  * @author Douglas
@@ -52,7 +53,7 @@ public class GameMenuView extends View {
                 System.out.println("call get resources function");
                 break;
             case 'M':
-                System.out.println("call move to new island function");
+                this.displayMoveIsland();
                 break;
             case 'F':
                 System.out.println("call fix ship function");
@@ -75,9 +76,6 @@ public class GameMenuView extends View {
         return true;
     }
 
-    void displayMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private void viewInventory() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
@@ -96,5 +94,11 @@ public class GameMenuView extends View {
 
     private void displayStatusReport() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void displayMoveIsland() {
+        MoveIslandView moveIsland = new MoveIslandView();
+        moveIsland.display();
+        
     }
 }

@@ -58,7 +58,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(TreasureHunt.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
     private void openSavedGame() {
         System.out.println("*** openSavedGame() function called ***");

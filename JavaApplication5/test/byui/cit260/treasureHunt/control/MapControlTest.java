@@ -5,6 +5,7 @@
  */
 package byui.cit260.treasureHunt.control;
 
+import exceptions.MapControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class MapControlTest {
      * Test of calcDistanceTraveled method, of class MapControl.
      */
     @Test
-    public void testCalcDistanceTraveled() {
+    public void testCalcDistanceTraveled() throws MapControlException {
         System.out.println("calcDistanceTraveled");
         System.out.println("\tTest case #1");
         double xAxis = 4;
@@ -86,7 +87,7 @@ public class MapControlTest {
      * Test of calcDamages method, of class MapControl.
      */
     @Test
-    public void testCalcDamages() {
+    public void testCalcDamages() throws MapControlException {
         System.out.println("calcDamages");
         
         System.out.println("\tTest case #1");

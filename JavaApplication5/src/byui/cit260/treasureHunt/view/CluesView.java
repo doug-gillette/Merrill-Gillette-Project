@@ -17,14 +17,12 @@ public class CluesView extends View {
         String value = (String) obj;
         char choice = value.charAt(0);
         if (choice == 'R') {
-            this.returnToMenu();
+            return false;
         }
         else {
             System.out.println("\n*** Invalid Input Please Try Again ***");
         }
     return true;}
-    private void returnToMenu() {
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-    }
+    
+    
 }
