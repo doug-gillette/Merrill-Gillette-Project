@@ -14,7 +14,10 @@ import java.util.Objects;
 public class Ship implements Serializable{
     private Point location;
     private double damageStatus;
-
+    private double coconuts;
+    private double fish;
+    private double water;
+    private double distance;
     public Ship() {
         location = new Point (1,1);
         this.damageStatus = 0;
@@ -34,6 +37,38 @@ public class Ship implements Serializable{
 
     public void setDamageStatus(double damageStatus) {
         this.damageStatus = damageStatus;
+    }
+
+    public double getCoconuts() {
+        return coconuts;
+    }
+
+    public void setCoconuts(double coconuts) {
+        this.coconuts = coconuts;
+    }
+
+    public double getFish() {
+        return fish;
+    }
+
+    public void setFish(double fish) {
+        this.fish = fish;
+    }
+
+    public double getWater() {
+        return water;
+    }
+
+    public void setWater(double water) {
+        this.water = water;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 
     @Override

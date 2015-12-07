@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.treasureHunt.view;
-
+import treasureHunt.TreasureHunt;
 import byui.cit260.treasureHunt.control.MapControl;
 import byui.cit260.treasureHunt.model.Ship;
 import exceptions.MapControlException;
@@ -42,6 +42,8 @@ public class MoveIslandView extends View {
             double distance = mapControl.calcDistanceTraveled(xCoordinate, yCoordinate, currentx, currenty);
             
             double damage = mapControl.calcDamages(distance, currentDamage);
+            TreasureHunt.getCurrentGame().getShip().setDistance(distance);
+            TreasureHunt.getCurrentGame().getShip().setDamageStatus(damage);
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
         }

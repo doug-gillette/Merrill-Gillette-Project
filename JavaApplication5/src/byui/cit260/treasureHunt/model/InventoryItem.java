@@ -13,7 +13,7 @@ import java.util.Objects;
 public class InventoryItem implements Serializable{
     private String inventoryType;
     private double quantityInStock;
-    
+    private double quantityNeeded;
     public enum Item {
     coconut,
     fish,
@@ -42,6 +42,14 @@ public class InventoryItem implements Serializable{
 
     public void setQuantityInStock(double quantityInStock) {
         this.quantityInStock = quantityInStock;
+    }
+
+    public double getQuantityNeeded() {
+        return quantityNeeded;
+    }
+
+    public void setQuantityNeeded(double quantityNeeded) {
+        this.quantityNeeded = quantityNeeded;
     }
 
     @Override

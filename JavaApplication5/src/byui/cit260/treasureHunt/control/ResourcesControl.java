@@ -5,25 +5,30 @@
  */
 package byui.cit260.treasureHunt.control;
 
+import byui.cit260.treasureHunt.model.Ship;
+import exceptions.ResourcesControlException;
+
 /**
  *
  * @author Jake
  */
 public class ResourcesControl {
-    public double calcResourcesNeeded(double distance, double fish, double water, double coconuts) {
-        if (distance < 1 || distance > 8.48528) {
-            System.out.println("Error");
-        }
-        fish = 0.4;
-        water = 0.2;
-        coconuts = 0.2;
+    public static Ship calcResourcesNeeded(Ship ship) throws ResourcesControlException {
+        
+        double fish = 0.4;
+        double water = 0.2;
+        double coconuts = 0.2;
+        double distance = ship.getDistance();
         double presources = fish + water + coconuts;
         double resourcesF = distance * fish;
         double resourcesW = distance * water;
         double resourcesC = distance * coconuts;
-        String resources = ("You need " + resourcesF + " fish, " + resourcesW + " buckets of water, and "
+        ship.setCoconuts(resourcesC);
+        ship.setFish(resourcesF);
+        ship.setWater(resourcesW);
+        /**String resources = ("You need " + resourcesF + " fish, " + resourcesW + " buckets of water, and "
         + resourcesC + " coconuts.");
-        System.out.println(resources);
-        return presources;
+        System.out.println(resources);*/
+        return ship;
     }
 }

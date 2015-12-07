@@ -25,7 +25,6 @@ public class TreasureHunt {
             te.printStackTrace();
             startProgramView.startProgram();          
         }
-
     }
     public static Game getCurrentGame() {
         return currentGame;
