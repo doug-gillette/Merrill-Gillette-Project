@@ -27,6 +27,10 @@ public class MapControl {
     private static HidingPlaces[] createHidingPlaces() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    static void moveShipToStartingLocation(IslandMap map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) 
     throws MapControlException{
         if (xAxis < 1 || yAxis < 1) {
