@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.treasureHunt.model;
+import byui.cit260.treasureHunt.control.GameControl;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -13,7 +14,16 @@ import java.util.Objects;
 public class InventoryItem implements Serializable{
     private String inventoryType;
     private double quantityInStock;
-    private double quantityNeeded;
+    private static class Constants {
+        private static int NUMBER_OF_INVENTORY_ITEMS;
+
+        public Constants() {
+        }
+    }
+    InventoryItem() {
+        this.inventoryType = "coconut";
+        this.quantityInStock = 0;
+    }
     public enum Item {
     coconut,
     fish,
@@ -23,33 +33,52 @@ public class InventoryItem implements Serializable{
     saw,
     spyglass;
     }
-    public InventoryItem() {
-        this.inventoryType = "coconut";
-        this.quantityInStock = 0;
+    public static InventoryItem[] createInventoryList() {
+        InventoryItem[] inventory = new InventoryItem[InventoryItem.Constants.NUMBER_OF_INVENTORY_ITEMS];
+        InventoryItem coconut = new InventoryItem();
+        coconut.setInventoryType("Coconut");
+        coconut.setQuantityInStock(0);
+        inventory[InventoryItem.Item.coconut.ordinal()] = coconut;
+        InventoryItem fish = new InventoryItem();
+        fish.setInventoryType("Fish");
+        fish.setQuantityInStock(0);
+        inventory[InventoryItem.Item.fish.ordinal()] = fish;
+        InventoryItem water = new InventoryItem();
+        water.setInventoryType("Water");
+        water.setQuantityInStock(0);
+        inventory[InventoryItem.Item.water.ordinal()] = water;
+        InventoryItem wood = new InventoryItem();
+        wood.setInventoryType("Wood");
+        wood.setQuantityInStock(0);
+        inventory[InventoryItem.Item.wood.ordinal()] = wood;
+        InventoryItem hammer = new InventoryItem();
+        hammer.setInventoryType("Hammer");
+        hammer.setQuantityInStock(0);
+        inventory[InventoryItem.Item.hammer.ordinal()] = hammer;
+        InventoryItem saw = new InventoryItem();
+        saw.setInventoryType("Saw");
+        saw.setQuantityInStock(0);
+        inventory[InventoryItem.Item.saw.ordinal()] = saw;
+        InventoryItem spyglass = new InventoryItem();
+        spyglass.setInventoryType("Spyglass");
+        spyglass.setQuantityInStock(0);
+        inventory[InventoryItem.Item.spyglass.ordinal()] = spyglass;
+        return inventory;
     }
+    
     
     public String getInventoryType() {
         return inventoryType;
     }
-
     public void setInventoryType(String inventoryType) {
         this.inventoryType = inventoryType;
     }
-
     public double getQuantityInStock() {
         return quantityInStock;
     }
 
     public void setQuantityInStock(double quantityInStock) {
         this.quantityInStock = quantityInStock;
-    }
-
-    public double getQuantityNeeded() {
-        return quantityNeeded;
-    }
-
-    public void setQuantityNeeded(double quantityNeeded) {
-        this.quantityNeeded = quantityNeeded;
     }
 
     @Override

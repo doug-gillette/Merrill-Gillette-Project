@@ -25,21 +25,17 @@ public class GameControl {
         Game game = new Game();
         TreasureHunt.setCurrentGame(game);
         game.setPlayer(player);
-        InventoryItem[] inventoryList = GameControl.createInventoryList();
+        InventoryItem[] inventoryList = InventoryItem.createInventoryList();
         game.setInventory(inventoryList);
         
         Ship ship = new Ship();
         game.setShip(ship);
         IslandMap map = MapControl.createMap();
         game.setIslandMap(map);
+        MapControl.moveShipToStartingLocation(map);
     }
 
-    private static class Constants {
-        private static int NUMBER_OF_INVENTORY_ITEMS;
-
-        public Constants() {
-        }
-    }
+    
 
     private static class locations {
 
@@ -50,47 +46,8 @@ public class GameControl {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
-    public enum Item {
-    coconut,
-    fish,
-    water,
-    wood,
-    hammer,
-    saw,
-    spyglass;
-    }
-    public static InventoryItem[] createInventoryList() {
-        InventoryItem[] inventory = new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
-        InventoryItem coconut = new InventoryItem();
-        coconut.setInventoryType("Coconut");
-        coconut.setQuantityInStock(0);
-        inventory[Item.coconut.ordinal()] = coconut;
-        InventoryItem fish = new InventoryItem();
-        fish.setInventoryType("Fish");
-        fish.setQuantityInStock(0);
-        inventory[Item.fish.ordinal()] = fish;
-        InventoryItem water = new InventoryItem();
-        water.setInventoryType("Water");
-        water.setQuantityInStock(0);
-        inventory[Item.water.ordinal()] = water;
-        InventoryItem wood = new InventoryItem();
-        wood.setInventoryType("Wood");
-        wood.setQuantityInStock(0);
-        inventory[Item.wood.ordinal()] = wood;
-        InventoryItem hammer = new InventoryItem();
-        hammer.setInventoryType("Hammer");
-        hammer.setQuantityInStock(0);
-        inventory[Item.hammer.ordinal()] = hammer;
-        InventoryItem saw = new InventoryItem();
-        saw.setInventoryType("Saw");
-        saw.setQuantityInStock(0);
-        inventory[Item.saw.ordinal()] = saw;
-        InventoryItem spyglass = new InventoryItem();
-        spyglass.setInventoryType("Spyglass");
-        spyglass.setQuantityInStock(0);
-        inventory[Item.spyglass.ordinal()] = spyglass;
-        return inventory;
-    }
+    
+    
     public static InventoryItem[] getSortedInventoryList() {
         InventoryItem[] originalInventoryList = TreasureHunt.getCurrentGame().getInventory();
         InventoryItem[] inventoryList = originalInventoryList.clone();
