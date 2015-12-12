@@ -15,7 +15,7 @@ public class InventoryItem implements Serializable{
     private String inventoryType;
     private double quantityInStock;
     private static class Constants {
-        private static int NUMBER_OF_INVENTORY_ITEMS;
+        private static final int NUMBER_OF_INVENTORY_ITEMS = 7;
 
         public Constants() {
         }

@@ -13,6 +13,7 @@ import byui.cit260.treasureHunt.model.IslandMap;
 import byui.cit260.treasureHunt.model.Location;
 import byui.cit260.treasureHunt.model.Player;
 import byui.cit260.treasureHunt.model.Ship;
+import exceptions.ResourcesControlException;
 import treasureHunt.TreasureHunt;
 
 /**
@@ -21,7 +22,7 @@ import treasureHunt.TreasureHunt;
  */
 public class GameControl {
     
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws ResourcesControlException {
         Game game = new Game();
         TreasureHunt.setCurrentGame(game);
         game.setPlayer(player);

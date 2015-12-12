@@ -6,6 +6,9 @@
 package byui.cit260.treasureHunt.view;
 
 import byui.cit260.treasureHunt.control.GameControl;
+import exceptions.ResourcesControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import treasureHunt.TreasureHunt;
 
 /**
@@ -32,7 +35,13 @@ public class MainMenuView extends View {
        char choice = value.charAt(0);
         switch(choice) {
             case 'B': 
-                this.beginNewGame();
+       {
+           try {
+               this.beginNewGame();
+           } catch (ResourcesControlException ex) {
+               Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
                 break;
             case 'O':
                 this.openSavedGame();
@@ -54,7 +63,7 @@ public class MainMenuView extends View {
         }
         return true;
     }
-    private void beginNewGame() {
+    private void beginNewGame() throws ResourcesControlException {
         GameControl.createNewGame(TreasureHunt.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
