@@ -17,7 +17,7 @@ public class Location implements Serializable{
     private boolean unlocked;
     private Point coordinates;
     private IslandLocation islandLocation;
-    private HidingPlaces hidingPlace;
+    private HidingPlaces hidingPlaces;
     public Location() {
         this.unlocked = false;
         coordinates = new Point (1,1);
@@ -48,11 +48,11 @@ public class Location implements Serializable{
     }
 
     public HidingPlaces getHidingPlace() {
-        return hidingPlace;
+        return hidingPlaces;
     }
 
-    public void setHidingPlaces(HidingPlaces hidingPlace) {
-        this.hidingPlace = hidingPlace;
+    public void setHidingPlaces(HidingPlaces hidingPlaces) {
+        this.hidingPlaces = hidingPlaces;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Location implements Serializable{
         hash = 13 * hash + (this.unlocked ? 1 : 0);
         hash = 13 * hash + Objects.hashCode(this.coordinates);
         hash = 13 * hash + Objects.hashCode(this.islandLocation);
-        hash = 13 * hash + Objects.hashCode(this.hidingPlace);
+        hash = 13 * hash + Objects.hashCode(this.hidingPlaces);
         return hash;
     }
 
@@ -83,7 +83,7 @@ public class Location implements Serializable{
         if (!Objects.equals(this.islandLocation, other.islandLocation)) {
             return false;
         }
-        if (!Objects.equals(this.hidingPlace, other.hidingPlace)) {
+        if (!Objects.equals(this.hidingPlaces, other.hidingPlaces)) {
             return false;
         }
         return true;
@@ -91,7 +91,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "unlocked=" + unlocked + ", coordinates=" + coordinates + ", islandLocation=" + islandLocation + ", hidingPlace=" + hidingPlace + '}';
+        return "Location{" + "unlocked=" + unlocked + ", coordinates=" + coordinates + ", islandLocation=" + islandLocation + ", hidingPlaces=" + hidingPlaces + '}';
     }
 
   

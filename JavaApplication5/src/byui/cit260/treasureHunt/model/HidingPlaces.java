@@ -19,12 +19,14 @@ public class HidingPlaces implements Serializable{
     private String description;
     private String content;
     private IslandLocation islandLocation;
+    private String mapSymbol;
+    private boolean blocked;
     public HidingPlaces() {
         this.unlocked = "You have found the next clue!";
         this.description = "Ooh, shiny!";
         this.content = "1 piece of the puzzle!";
     }
-    private static HidingPlaces[] createHidingPlaces() {
+    public static HidingPlaces[] createHidingPlaces() {
         Game game = TreasureHunt.getCurrentGame();
         HidingPlaces[] hidingPlaces = new HidingPlaces[HidingPlacesType.values().length];
         HidingPlaces firstHidingPlace = new HidingPlaces();
@@ -35,7 +37,6 @@ public class HidingPlaces implements Serializable{
             + "clues.  Good luck.  You're going to need it.");
         firstHidingPlace.setMapSymbol(" ST ");
         firstHidingPlace.setBlocked(false);
-        firstHidingPlace.setTravelTime(240);
         hidingPlaces[HidingPlacesType.start.ordinal()] = firstHidingPlace;
         HidingPlaces lastHidingPlace = new HidingPlaces();
         lastHidingPlace.setDescription(
@@ -44,29 +45,44 @@ public class HidingPlaces implements Serializable{
             + "ultimate treasure hunter!!");
         lastHidingPlace.setMapSymbol(" END ");
         lastHidingPlace.setBlocked(false);
-        lastHidingPlace.setTravelTime(Double.POSITIVE_INFINITY);
         hidingPlaces[HidingPlacesType.end.ordinal()] = firstHidingPlace;
         return null;
     }
 
-    private void setMapSymbol(String _st_) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
     }
 
-    private void setBlocked(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
-    private void setTravelTime(double POSITIVE_INFINITY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     public enum HidingPlacesType {
         start,
         ocean,
-        island,
-        beach,
-        main,
-        forest,
+        Fiji,
+        Volcano,
+        Hawaii,
+        Kawaii,
+        Kuna,
+        Mali,
+        Colorado,
+        Idaho,
+        Samoa,
+        Tonga,
+        Tasmania,
+        Maltese,
+        McDonald,
+        Arizona,
+        Transylvania,
+        Maui,
+        York,
+        Rhode,
+        Rexburg,
+        Meridian,
+        Amazon,
+        Brobdingnag,
+        Lilliput,
         end;
     }
     public String getUnlocked() {

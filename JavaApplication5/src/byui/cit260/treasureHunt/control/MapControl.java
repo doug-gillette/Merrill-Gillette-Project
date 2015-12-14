@@ -19,17 +19,13 @@ import treasureHunt.TreasureHunt;
 public class MapControl {
     public static IslandMap createMap() {
         IslandMap map = new IslandMap(7, 7);
-        HidingPlaces[] hidingPlaces = createHidingPlaces();
+        HidingPlaces[] hidingPlaces = byui.cit260.treasureHunt.model.HidingPlaces.createHidingPlaces();
         GameControl.assignHidingPlacesToLocations(map, hidingPlaces);
         return map;
     }
 
-    private static HidingPlaces[] createHidingPlaces() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     static void moveShipToStartingLocation(IslandMap map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
     public double calcDistanceTraveled(double xAxis, double yAxis, double xLocation, double yLocation) 
     throws MapControlException{
