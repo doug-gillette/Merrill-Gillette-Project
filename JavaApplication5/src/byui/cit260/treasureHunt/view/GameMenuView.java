@@ -41,7 +41,7 @@ public class GameMenuView extends View {
        char choice = value.charAt(0);
         switch(choice) {
             case 'T': 
-                System.out.println("dislay treasure map");
+                this.displayTreasureMap();
                 break;
             case 'I':
                 this.viewInventory();
@@ -50,13 +50,13 @@ public class GameMenuView extends View {
                 this.displayStatusReport();
                 break;
             case 'G':
-                System.out.println("call get resources function");
+                this.getResources();
                 break;
             case 'M':
                 this.displayMoveIsland();
                 break;
             case 'F':
-                System.out.println("call fix ship function");
+                this.fixShip();
                 break;
             case 'V':
                 this.displayIslandMap();
@@ -75,21 +75,23 @@ public class GameMenuView extends View {
         }
         return true;
     }
-
+    private void displayTreasureMap() {
+        this.console.println("/n*** displayTreasureMap function called ***");
+    }
 
     private void viewInventory() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
-        System.out.println("List of Inventory Items");
-        System.out.println("Inventory Type" + "/t" +
+        this.console.println("List of Inventory Items");
+        this.console.println("Inventory Type" + "/t" +
                 "In Stock");
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getInventoryType() + "/t  " +
+            this.console.println(inventoryItem.getInventoryType() + "/t  " +
                                inventoryItem.getQuantityInStock());
         }
     }
 
     private void displayIslandMap() {
-        System.out.println("/n*** displayIslandMap stub function called ***");
+        this.console.println("/n*** displayIslandMap stub function called ***");
     }
 
     private void displayStatusReport() {
@@ -99,6 +101,15 @@ public class GameMenuView extends View {
     private void displayMoveIsland() {
         MoveIslandView moveIsland = new MoveIslandView();
         moveIsland.display();
+        
+    }
+
+    private void getResources() {
+        GetResourcesView getResources = new GetResourcesView();
+        getResources.display();
+    }
+
+    private void fixShip() {
         
     }
 }

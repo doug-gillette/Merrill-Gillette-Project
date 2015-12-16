@@ -5,14 +5,15 @@
  */
 package byui.cit260.treasureHunt.view;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import treasureHunt.TreasureHunt;
 
 /**
  *
  * @author Douglas
  */
 public class HelpMenuView {
-
+    protected final BufferedReader keyboard = TreasureHunt.getInFile();
     
     private final String MENU = "\n"
         + "\n---------------------------------------------------"
@@ -36,15 +37,14 @@ public class HelpMenuView {
             
         } while (selection != 'Q');
     }
-
+  
     private String getInput() {
         boolean valid = false;
-        String value = null;
-        Scanner keyboard = new Scanner(System.in); 
+        String value = null; 
         
         while (!valid){
             System.out.println("Enter your selection from Menu");
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
             
             if(!"G".equals(value) && !"D".equals(value) && !"H".equals(value) && !"R".equals(value)) {

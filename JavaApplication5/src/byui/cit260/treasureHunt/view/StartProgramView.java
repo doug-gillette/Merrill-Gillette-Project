@@ -3,10 +3,11 @@ package byui.cit260.treasureHunt.view;
 
 import byui.cit260.treasureHunt.control.ProgramControl;
 import byui.cit260.treasureHunt.model.Player;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import treasureHunt.TreasureHunt;
 
 public class StartProgramView {
-    
+    protected final BufferedReader keyboard = TreasureHunt.getInFile();
     public StartProgramView() {
     }
     public void startProgram() {
@@ -33,12 +34,11 @@ public class StartProgramView {
     }
     private String getPlayersName() {
         boolean valid = false;
-        String playersName = null;
-        Scanner keyboard = new Scanner(System.in); 
+        String playersName = null; 
         
         while (!valid){
             System.out.println("Enter the player's name below:");
-            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             if (playersName.length() < 2){
                 System.out.println("Invalid name - the name must not be blank.");

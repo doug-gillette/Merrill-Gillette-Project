@@ -14,15 +14,14 @@ public class CluesView extends View {
     }
     @Override
     public boolean doAction(Object obj) {
-        String value = (String) obj;
-        char choice = value.charAt(0);
-        if (choice == 'R') {
-            return false;
-        }
-        else {
-            System.out.println("\n*** Invalid Input Please Try Again ***");
-        }
-    return true;}
-    
-    
+    String value = (String) obj;
+    char choice = value.charAt(0);
+    if (choice == 'R') {
+        return false;
+    }
+    else {
+        ErrorView.display(getClass().getName(),"\n*** Invalid Input Please Try Again ***");
+    }
+    return true;
+    }
 }

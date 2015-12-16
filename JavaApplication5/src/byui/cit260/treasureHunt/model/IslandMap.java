@@ -5,6 +5,7 @@
  */
 package byui.cit260.treasureHunt.model;
 
+import byui.cit260.treasureHunt.view.ErrorView;
 import java.awt.Point;
 import java.io.Serializable;
 /**
@@ -24,7 +25,7 @@ public class IslandMap implements Serializable{
 
     public IslandMap(int noRows, int noColumns) {
         if (noRows < 1 || noColumns < 1) {
-            System.out.println("The number of rows and colums must be > zero");
+            ErrorView.display(this.getClass().getName(),"The number of rows and colums must be > zero");
             return;
         }
         this.noRows = noRows;
