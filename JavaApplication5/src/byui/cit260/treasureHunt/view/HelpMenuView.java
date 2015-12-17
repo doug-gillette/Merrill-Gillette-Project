@@ -12,10 +12,10 @@ import treasureHunt.TreasureHunt;
  *
  * @author Douglas
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
     protected final BufferedReader keyboard = TreasureHunt.getInFile();
-    
-    private final String MENU = "\n"
+    public HelpMenuView(String MENU) {
+        super( "\n"
         + "\n---------------------------------------------------"
         + "\n| Help Menu                                       |"
         + "\n---------------------------------------------------"
@@ -23,13 +23,14 @@ public class HelpMenuView {
         + "\nD-Description of the Game"
         + "\nH-How to play"
         + "\nR-Return to Main Menu"
-        + "\n--------------------------------------------------";
+        + "\n--------------------------------------------------");
+    }
  
-    void displayMenu() {
+    void displayMenu(boolean MENU) {
         char selection =' ';
         do {
             
-            System.out.println(MENU);
+            this.console.println(MENU);
             
             String input = this.getInput();
             selection = input.charAt(0);
@@ -38,7 +39,7 @@ public class HelpMenuView {
         } while (selection != 'Q');
     }
   
-    private String getInput() {
+    public String getInput() {
         boolean valid = false;
         String value = null; 
         
@@ -75,6 +76,11 @@ public class HelpMenuView {
                 System.out.println("\n*** Invalid Input Please Try Again ***");
                 break;
         }
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
