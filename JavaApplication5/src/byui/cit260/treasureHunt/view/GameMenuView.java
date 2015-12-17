@@ -28,7 +28,6 @@ public class GameMenuView extends View {
             + "\nM-Move to New Island"
             + "\nF-Fix Ship"
             + "\nV-View Island Map"
-            + "\nE-Explore Current Island"
             + "\nH-Help"
             + "\nR-Return to Main Menu"
             + "\n--------------------------------------------------");
@@ -61,16 +60,13 @@ public class GameMenuView extends View {
             case 'V':
                 this.displayIslandMap();
                 break;
-            case 'E':
-                System.out.println("call explore island function");
-                break;
             case 'H':
-                System.out.println("display help menu");
+                this.displayHelpMenu();
                 break;
             case 'R':
                 return false;
             default:
-                System.out.println("\n*** Invalid Input Please Try Again ***");
+                ErrorView.display(getClass().getName(),"\n*** Invalid Input Please Try Again ***");
                 break;
         }
         return true;
@@ -111,5 +107,10 @@ public class GameMenuView extends View {
 
     private void fixShip() {
         
+    }
+
+    private void displayHelpMenu() {
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
 }

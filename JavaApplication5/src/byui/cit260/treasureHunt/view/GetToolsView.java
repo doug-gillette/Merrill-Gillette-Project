@@ -9,8 +9,17 @@ package byui.cit260.treasureHunt.view;
  *
  * @author Douglas
  */
-class GetToolsView {
+class GetToolsView extends View{
+
+    public GetToolsView(String promptMessage) {
+        super(promptMessage);
+    }
     public void displayMenu() {
-        System.out.println("Display the Get Tools View");
+        this.console.println("Display the Get Tools View");
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

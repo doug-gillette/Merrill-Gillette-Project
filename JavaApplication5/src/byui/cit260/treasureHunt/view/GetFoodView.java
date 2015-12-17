@@ -24,7 +24,7 @@ class GetFoodView extends View{
                 + "for your trip to the next island.");
     }
     public void displayMenu() {
-        System.out.println("Display the get Food Menu");
+        this.console.println("Display the get Food Menu");
     }
 
     @Override
@@ -36,9 +36,9 @@ class GetFoodView extends View{
             //display amount of water needed
 
             ResourcesControl.calcResourcesNeeded(TreasureHunt.getCurrentGame().getShip());
-            System.out.println(TreasureHunt.getCurrentGame().getShip());
+            this.console.println(TreasureHunt.getCurrentGame().getShip());
         } catch (ResourcesControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
             return false;
         
         }

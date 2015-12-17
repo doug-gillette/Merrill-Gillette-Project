@@ -45,7 +45,7 @@ public class GetResourcesView extends View {
             case 'R':
                 return false;
             default:
-                System.out.println("\n*** Invalid Input Please Try Again ***");
+                this.console.println("\n*** Invalid Input Please Try Again ***");
                 break;
         }
         return true;
