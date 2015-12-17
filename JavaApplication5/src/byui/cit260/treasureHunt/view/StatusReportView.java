@@ -47,24 +47,24 @@ public class StatusReportView extends View{
             case 'R':
                 return false;
             default:
-                System.out.println("\n*** Invalid Input, Please Try Again ***");
+                ErrorView.display(getClass().getName(),"\n*** Invalid Input, Please Try Again ***");
                 break;
         }
     return true;}
     private void displayInventory() {
-        System.out.println("*** displayInventory() function called ***");
+        this.console.println("*** displayInventory() function called ***");
     }
     private void displayDamages() {
-        System.out.println("*** displayDamages() function  called ***");
+        this.console.println("*** displayDamages() function  called ***");
     }
     private void displayProgress() {
-        System.out.println("*** displayProgress() function called ***");
+        this.console.println("*** displayProgress() function called ***");
     }
     private void displayCurrentIsland() {
-        System.out.println("*** displayCurrentIsland() function called ***");
+        this.console.println("*** displayCurrentIsland() function called ***");
     }
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
 }

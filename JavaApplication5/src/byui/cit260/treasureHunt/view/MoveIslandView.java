@@ -45,11 +45,8 @@ public class MoveIslandView extends View {
             TreasureHunt.getCurrentGame().getShip().setDistance(distance);
             TreasureHunt.getCurrentGame().getShip().setDamageStatus(damage);
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            this.console.println(me.getMessage());
         }
-       
-       
-       
         return false;
     }
 }

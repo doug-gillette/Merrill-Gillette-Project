@@ -24,7 +24,7 @@ public class MainMenuView extends View {
             + "\nB-Begin Game"
             + "\nO-Open Saved Game"
             + "\nH-Help"
-            + "\nS-Save Level"
+            + "\nS-Save Game"
             + "\nR-Reset"
             + "\nQ-Quit"
             + "\n--------------------------------------------------");
@@ -58,7 +58,7 @@ public class MainMenuView extends View {
             case 'Q':
                 return false;
             default:
-                System.out.println("\n*** Invalid Input Please Try Again ***");
+                ErrorView.display(getClass().getName(),"\n*** Invalid Input Please Try Again ***");
                 break;
         }
         return true;
@@ -70,17 +70,23 @@ public class MainMenuView extends View {
         gameMenu.display();
     }
     private void openSavedGame() {
-        System.out.println("*** openSavedGame() function called ***");
+        
     }
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
     private void saveGame() {
-        System.out.println("*** saveGame() function called ***");
+        this.console.println("\n\nEnter the file path for file where the game is to be saved.");
+        String filePath = this.getInput();
+        try {
+            GameControl.saveGame(TreasureHunt.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
     private void resetGame() {
-        System.out.println("*** resetGame() function called ***");
+        this.console.println("*** resetGame() function called ***");
     }
     
 }

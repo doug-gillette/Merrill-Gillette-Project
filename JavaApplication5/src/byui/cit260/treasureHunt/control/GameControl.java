@@ -36,7 +36,17 @@ public class GameControl {
         MapControl.moveShipToStartingLocation(map);
     }
 
-    
+    public static void saveGame(Game currentGame, String filePath) {
+            throws GameControlException {
+        try( FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(game);
+        } 
+        catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
+        }
+    }
 
     private static class locations {
 

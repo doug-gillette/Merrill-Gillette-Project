@@ -6,9 +6,10 @@ import byui.cit260.treasureHunt.model.Player;
 import java.io.BufferedReader;
 import treasureHunt.TreasureHunt;
 
-public class StartProgramView {
+public abstract class StartProgramView extends View{
     protected final BufferedReader keyboard = TreasureHunt.getInFile();
-    public StartProgramView() {
+    public StartProgramView(String promptMessage) {
+        super(promptMessage);
     }
     public void startProgram() {
         this.displayBanner();
@@ -19,17 +20,17 @@ public class StartProgramView {
         mainMenu.display();
     }
     private void displayBanner() {
-        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*//////////////////////"
+        this.console.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*//////////////////////"
                 + "\n*  This is Treasure Hunt Game."
                 + "\n* In this game you will be searching for treasure");
          
-         System.out.println("You are a grand adventurer that is searching the"
+         this.console.println("You are a grand adventurer that is searching the"
                  + "\n* high seas for the great treasure of the Pirate"
                  + "\n* Cpt. Jimmie Raven. You will sail around the Islands"
                  + "\n* in search of clues that will lead you to Jimmie's"
                  + "\n* treasure."); 
         
-         System.out.println("May the Wind ever be behind you"
+         this.console.println("May the Wind ever be behind you"
                  + "\n*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*//////////////////////");
     }
     private String getPlayersName() {
@@ -37,11 +38,11 @@ public class StartProgramView {
         String playersName = null; 
         
         while (!valid){
-            System.out.println("Enter the player's name below:");
+            this.console.println("Enter the player's name below:");
             playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             if (playersName.length() < 2){
-                System.out.println("Invalid name - the name must not be blank.");
+                ErrorView.display(getClass().getName(),"Invalid name - the name must not be blank.");
                 continue;
             }
             break;
@@ -50,7 +51,7 @@ public class StartProgramView {
     }
 
     private void displayWelcomeMessage(Player player) {
-        System.out.println("\n-----------------------------------"
+        this.console.println("\n-----------------------------------"
                 + "Welcome to the game," + player.getName());
     }
     

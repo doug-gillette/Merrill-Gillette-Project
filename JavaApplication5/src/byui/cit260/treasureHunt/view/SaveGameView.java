@@ -27,10 +27,10 @@ public class SaveGameView extends View{
             return false;
         }
         else{
-            System.out.println("\n*** Invalid Input Please Try Again ***");
+            this.console.println("\n*** Invalid Input Please Try Again ***");
         }   
     return true;}
     private void yesSaveGame() {
-        System.out.println("*** yesSaveGame() function called ***");
+        this.console.println("*** yesSaveGame() function called ***");
     }
 }

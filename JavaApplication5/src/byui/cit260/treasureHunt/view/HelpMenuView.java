@@ -14,7 +14,7 @@ import treasureHunt.TreasureHunt;
  */
 public class HelpMenuView extends View{
     protected final BufferedReader keyboard = TreasureHunt.getInFile();
-    public HelpMenuView(String MENU) {
+    public HelpMenuView() {
         super( "\n"
         + "\n---------------------------------------------------"
         + "\n| Help Menu                                       |"
@@ -26,7 +26,7 @@ public class HelpMenuView extends View{
         + "\n--------------------------------------------------");
     }
  
-    void displayMenu(boolean MENU) {
+    public void displayMenu(boolean MENU) {
         char selection =' ';
         do {
             
@@ -38,18 +38,18 @@ public class HelpMenuView extends View{
             
         } while (selection != 'Q');
     }
-  
+    @Override
     public String getInput() {
         boolean valid = false;
         String value = null; 
         
         while (!valid){
-            System.out.println("Enter your selection from Menu");
+            this.console.println("Enter your selection from Menu");
             value = this.keyboard.readLine();
             value = value.trim();
             
             if(!"G".equals(value) && !"D".equals(value) && !"H".equals(value) && !"R".equals(value)) {
-                System.out.println("Invalid input - choose from the main menu.");
+                this.console.println("Invalid input - choose from the main menu.");
                 continue;
               
             }
@@ -62,18 +62,18 @@ public class HelpMenuView extends View{
         
         switch(choice) {
             case 'G': 
-                System.out.println("display Goals");
+                this.console.println("display Goals");
                 break;
             case 'D':
-                System.out.println("display description");
+                this.console.println("display description");
                 break;
             case 'H':
-                System.out.println("display How to Play");
+                this.console.println("display How to Play");
                 break;
             case 'R':
                 return;
             default:
-                System.out.println("\n*** Invalid Input Please Try Again ***");
+                ErrorView.display(getClass().getName(),"\n*** Invalid Input Please Try Again ***");
                 break;
         }
     }

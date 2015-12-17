@@ -9,8 +9,17 @@ package byui.cit260.treasureHunt.view;
  *
  * @author Douglas
  */
-class ResourcesHelpView {
+class ResourcesHelpView extends View{
+
+    public ResourcesHelpView(String promptMessage) {
+        super(promptMessage);
+    }
     public void displayMenu() {
-        System.out.println("Display the Resources Help View");
+        this.console.println("Display the Resources Help View");
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

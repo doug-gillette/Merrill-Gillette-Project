@@ -7,6 +7,7 @@ package treasureHunt;
 
 import byui.cit260.treasureHunt.model.Game;
 import byui.cit260.treasureHunt.model.Player;
+import byui.cit260.treasureHunt.view.ErrorView;
 import byui.cit260.treasureHunt.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,28 +27,33 @@ public class TreasureHunt {
     private static BufferedReader inFile = null;
     private static PrintWriter logFile = null;
     public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
+        StartProgramView startProgramView = new StartProgramView() {
+
+            @Override
+            public boolean doAction(Object obj) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         try {
         TreasureHunt.inFile = new BufferedReader(new InputStreamReader(System.in));
         TreasureHunt.outFile = new PrintWriter(System.out, true);
         String filePath = "log.txt";
         TreasureHunt.logFile = new PrintWriter(filePath);
-        startProgramView.startProgram();
-        } catch (Throwable te){
-            System.out.println(te.getMessage());
-            te.printStackTrace();
+        startProgramView.startProgram();} 
+        catch (Throwable te){
+            this.console.println(te.getMessage());
             startProgramView.startProgram();          
         }
         finally {
             try {
                 if(TreasureHunt.inFile != null)
-                TreasureHunt.inFile.close();
+                    TreasureHunt.inFile.close();
                 if(TreasureHunt.outFile != null)
-                TreasureHunt.outFile.close();
+                    TreasureHunt.outFile.close();
                 if(TreasureHunt.logFile != null)
-                TreasureHunt.logFile.close();
+                    TreasureHunt.logFile.close();
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                ErrorView.display("TreasureHunt","Error closing files");
                 return;
             }
             
@@ -92,5 +98,4 @@ public class TreasureHunt {
     public static void setLogFile(PrintWriter logFile) {
         TreasureHunt.logFile = logFile;
     }
-    
 }
